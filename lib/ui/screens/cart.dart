@@ -1,45 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant/data/model/auth_info.dart';
+import 'package:restaurant/data/repo/auth_repository.dart';
+import 'package:restaurant/ui/screens/auth/auth.dart';
 import '../screens/checkout.dart';
 import '../../util/foods.dart';
 import '../widgets/cart_item.dart';
-
 
 class CartScreen extends StatefulWidget {
   @override
   _CartScreenState createState() => _CartScreenState();
 }
 
-class _CartScreenState extends State<CartScreen> with AutomaticKeepAliveClientMixin<CartScreen >{
+class _CartScreenState extends State<CartScreen>
+    with AutomaticKeepAliveClientMixin<CartScreen> {
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(10.0,0,10.0,0),
-        child: ListView.builder(
-          itemCount: foods == null ? 0 :foods.length,
-          itemBuilder: (BuildContext context, int index) {
-//                Food food = Food.fromJson(foods[index]);
-            Map food = foods[index];
-//                print(foods);
-//                print(foods.length);
-            return CartItem(
-              img: food['img'],
-              isFav: false,
-              name: food['name'],
-              rating: 5.0,
-              raters: 23,
-            );
-          },
-        ),
-      ),
+      body: ValueListenableBuilder<AuthInfo?>(
+          valueListenable: AuthRepository.authCahheNotifier,
+          builder: (context, state, child) {
+            bool isAuth = state != null && state.accessToken.isNotEmpty;
 
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(isAuth ? "welcome " : "please login"),
+                if (!isAuth)
+                  ElevatedButton(
+                      onPressed:(){ Navigator.of(context,rootNavigator: true)
+                          .push(MaterialPageRoute(builder: (context)=>  JoinApp()));},
+
+                      child: Text("login"))
+              ],
+            );
+          }),
       floatingActionButton: FloatingActionButton(
         tooltip: "Checkout",
-        onPressed: (){
+        onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (BuildContext context){
+              builder: (BuildContext context) {
                 return Checkout();
               },
             ),

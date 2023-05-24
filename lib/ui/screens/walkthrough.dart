@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
- import '../screens/join.dart';
-
+ import '../../data/repo/auth_repository.dart';
+import 'auth/auth.dart';
+ 
 
 class Walkthrough extends StatefulWidget {
   @override
@@ -13,23 +14,23 @@ class _WalkthroughState extends State<Walkthrough> {
   List pageInfos = [
     {
       "title": "Fresh Food",
-      "body": "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus."
-          " Vestibulum ac diam sit amet quam vehicula elementum sed sit amet "
-          "dui. Nulla porttitor accumsan tincidunt.",
+      "body": "Let's live great justice, Lacinia needs to be followed, but the valley and the region."
+          "The building and the yard should be more important than the vehicle element, but it should be important"
+          "dui. There is no airline company.",
       "img": "assets/on1.png",
     },
     {
       "title": "Fast Delivery",
-      "body": "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus."
-          " Vestibulum ac diam sit amet quam vehicula elementum sed sit amet "
-          "dui. Nulla porttitor accumsan tincidunt.",
+      "body": "Let's live great justice, Lacinia needs to be followed, but the valley and the region."
+          "The building and the yard should be more important than the vehicle element, but it should be important"
+          "dui. There is no airline company.",
       "img": "assets/on2.png",
     },
     {
       "title": "Easy Payment",
-      "body": "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus."
-          " Vestibulum ac diam sit amet quam vehicula elementum sed sit amet "
-          "dui. Nulla porttitor accumsan tincidunt.",
+      "body": "Let's live great justice, Lacinia needs to be followed, but the valley and the region."
+          "The building and the yard should be more important than the vehicle element, but it should be important"
+          "dui. There is no airline company.",
       "img": "assets/on3.png",
     },
   ];

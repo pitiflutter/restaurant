@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:restaurant/data/repo/auth_repository.dart';
 import '../screens/walkthrough.dart';
 import '../../util/const.dart';
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,15 +13,14 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   startTimeout() {
-    return  Timer(Duration(seconds: 2), changeScreen);
+    return Timer(Duration(seconds: 2), changeScreen);
   }
 
-  changeScreen() async{
+  changeScreen() async {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (BuildContext context){
+        builder: (BuildContext context) {
           return Walkthrough();
         },
       ),
@@ -34,7 +33,6 @@ class _SplashScreenState extends State<SplashScreen> {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     startTimeout();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 size: 150.0,
                 color: Theme.of(context).accentColor,
               ),
-
               SizedBox(width: 40.0),
-
               Container(
                 alignment: Alignment.center,
                 margin: EdgeInsets.only(
@@ -75,6 +71,4 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
-
-
 }

@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant/common/exeptions.dart';
-import 'package:restaurant/data/model/food.dart';
-import 'package:restaurant/data/repo/food_detail_rapository.dart';
-import 'package:restaurant/data/repo/food_repository.dart';
+ import 'package:restaurant/data/model/food.dart';
+ import 'package:restaurant/data/repo/food_repository.dart';
 import 'package:restaurant/data/repo/menu_repository.dart';
-import 'package:bloc/bloc.dart';
-import 'package:restaurant/ui/screens/home/bloc/home_bloc.dart';
+ import 'package:restaurant/ui/screens/home/bloc/home_bloc.dart';
 import '../dishes.dart';
 import '../../widgets/grid_product.dart';
 import '../../widgets/home_category.dart';
 import '../../widgets/slider_item.dart';
-import '../../../util/foods.dart';
-import '../../../util/categories.dart';
+ import '../../../util/categories.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class Home extends StatefulWidget {
@@ -36,8 +32,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
      return BlocProvider(
       create: (context) {
-        final homeBloc = HomeBloc(
-            foodRepository: foodRepository, menuRepository: menuRepository);
+        final homeBloc = HomeBloc(foodRepository: foodRepository, menuRepository: menuRepository);
         homeBloc.add(HomeStarted());
         return homeBloc;
       },

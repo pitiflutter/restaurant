@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:restaurant/data/repo/menu_repository.dart';
 import '../screens/cart.dart';
 import '../screens/favorite_screen.dart';
 import 'home/home.dart';
@@ -8,7 +9,6 @@ import '../screens/profile.dart';
 import '../screens/search.dart';
 import '../../util/const.dart';
 import '../widgets/badge.dart';
-
 
 class MainScreen extends StatefulWidget {
   @override
@@ -21,8 +21,9 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    menuRepository.getAll;
     return WillPopScope(
-      onWillPop: ()=>Future.value(false),
+      onWillPop: () => Future.value(false),
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -37,10 +38,10 @@ class _MainScreenState extends State<MainScreen> {
                 icon: Icons.notifications,
                 size: 22.0,
               ),
-              onPressed: (){
+              onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (BuildContext context){
+                    builder: (BuildContext context) {
                       return Notifications();
                     },
                   ),
@@ -50,7 +51,6 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ],
         ),
-
         body: PageView(
           physics: NeverScrollableScrollPhysics(),
           controller: _pageController,
@@ -63,13 +63,12 @@ class _MainScreenState extends State<MainScreen> {
             Profile(),
           ],
         ),
-
         bottomNavigationBar: BottomAppBar(
           child: new Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              SizedBox(width:7),
+              const SizedBox(width: 7),
               IconButton(
                 icon: Icon(
                   Icons.home,
@@ -77,25 +76,19 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 color: _page == 0
                     ? Theme.of(context).accentColor
-                    : Theme
-                    .of(context)
-                    .textTheme.caption?.color,
-                onPressed: ()=>_pageController.jumpToPage(0),
+                    : Theme.of(context).textTheme.caption?.color,
+                onPressed: () => _pageController.jumpToPage(0),
               ),
-
               IconButton(
-                icon:Icon(
+                icon: Icon(
                   Icons.favorite,
                   size: 24.0,
                 ),
                 color: _page == 1
                     ? Theme.of(context).accentColor
-                    : Theme
-                    .of(context)
-                    .textTheme.caption?.color,
-                onPressed: ()=>_pageController.jumpToPage(1),
+                    : Theme.of(context).textTheme.caption?.color,
+                onPressed: () => _pageController.jumpToPage(1),
               ),
-
               IconButton(
                 icon: Icon(
                   Icons.search,
@@ -104,12 +97,9 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 color: _page == 2
                     ? Theme.of(context).accentColor
-                    : Theme
-                    .of(context)
-                    .textTheme.caption?.color,
-                onPressed: ()=>_pageController.jumpToPage(2),
+                    : Theme.of(context).textTheme.caption?.color,
+                onPressed: () => _pageController.jumpToPage(2),
               ),
-
               IconButton(
                 icon: IconBadge(
                   icon: Icons.shopping_cart,
@@ -117,12 +107,9 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 color: _page == 3
                     ? Theme.of(context).accentColor
-                    : Theme
-                    .of(context)
-                    .textTheme.caption?.color,
-                onPressed: ()=>_pageController.jumpToPage(3),
+                    : Theme.of(context).textTheme.caption?.color,
+                onPressed: () => _pageController.jumpToPage(3),
               ),
-
               IconButton(
                 icon: Icon(
                   Icons.person,
@@ -130,13 +117,10 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 color: _page == 4
                     ? Theme.of(context).accentColor
-                    : Theme
-                    .of(context)
-                    .textTheme.caption?.color,
-                onPressed: ()=>_pageController.jumpToPage(4),
+                    : Theme.of(context).textTheme.caption?.color,
+                onPressed: () => _pageController.jumpToPage(4),
               ),
-
-              SizedBox(width:7),
+              const SizedBox(width: 7),
             ],
           ),
           color: Theme.of(context).primaryColor,
@@ -149,9 +133,8 @@ class _MainScreenState extends State<MainScreen> {
           child: Icon(
             Icons.search,
           ),
-          onPressed: ()=>_pageController.jumpToPage(2),
+          onPressed: () => _pageController.jumpToPage(2),
         ),
-
       ),
     );
   }
