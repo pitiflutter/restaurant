@@ -18,11 +18,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>((event, emit) async {
       if (event is HomeStarted) {
         emit(HomeLoading());
+        debugPrint("emitted HomeLoading in Bloc");
         try {
           final List<Food> foods = await foodRepository.getAll();
           final List<Menu> menus = await menuRepository.getAll();
           emit(HomeSuccess(foods: foods, menus: menus));
-          debugPrint("All foods and menus successfully recieved .");
+          debugPrint("emitted HomeSuccess in Bloc");
         } catch (e) {
           emit(HomeError(e is AppExeptions ? e : AppExeptions()));
         }

@@ -28,6 +28,8 @@ class FoodDetailRemoteDataSource
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InBpdGkxMzgxMzBAZ21haWwuY29tIiwiRmlyc3RfbmFtZSI6IkhhbWVkIiwiTGFzdF9uYW1lIjoiTWFobW9vZGkiLCJVaWQiOiI2NDRjZTY5YTY0ODM5ZGRjNmI4OWRhOTMiLCJVc2VyX3R5cGUiOiJBRE1JTiIsImV4cCI6MjA0MzA1OTgwM30.YBh2Ul_qlXJ38zaaCDZf3L9qXOp4fwIPIC4rOADv2eM"
     });
     ValidateResponse(response);
+    debugPrint("detail getAll function done ");
+
     FoodDetail foodDetail = FoodDetail.fromJson(jsonDecode(response.body));
     return foodDetail;
   }

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:restaurant/common/exeptions.dart';
 import 'package:restaurant/data/model/food.dart';
 import 'package:restaurant/data/repo/food_detail_rapository.dart';
@@ -15,10 +16,14 @@ class DetailBloc extends Bloc<DetailEvent, DetailState> {
     on<DetailEvent>((event, emit) async {
       if (event is DetailStarted) {
         emit(DetailLoading());
+        debugPrint("emitted DetailLoading in Bloc");
+
         try {
           final FoodDetail foodDetail =
               await foodDetailRepository.getAll(foodId: foodId);
           emit(DetailSuccess(foodDetail));
+          debugPrint("emitted DetailSuccess in Bloc");
+
         } catch (e) {
           print("error when fetch data");
           emit(DetailError(e is AppExeptions ? e : AppExeptions()));
