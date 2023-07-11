@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:restaurant/data/repo/auth_repository.dart';
-import '../screens/walkthrough.dart';
+ import 'package:restaurant/ui/screens/auth/auth.dart';
+import 'package:restaurant/ui/screens/walkthrough.dart';
+
 import '../../util/const.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -48,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
               Icon(
                 Icons.fastfood,
                 size: 150.0,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).hintColor,
               ),
               SizedBox(width: 40.0),
               Container(
@@ -61,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   style: TextStyle(
                     fontSize: 25.0,
                     fontWeight: FontWeight.w700,
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).hintColor,
                   ),
                 ),
               ),

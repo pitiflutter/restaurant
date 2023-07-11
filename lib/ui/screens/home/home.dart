@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
                             style: TextStyle(
 //                      fontSize: 22,
 //                      fontWeight: FontWeight.w800,
-                              color: Theme.of(context).accentColor,
+                              color: Theme.of(context).hintColor,
                             ),
                           ),
                           onPressed: () {
@@ -157,7 +157,7 @@ class _HomeState extends State<Home> {
                             style: TextStyle(
 //                      fontSize: 22,
 //                      fontWeight: FontWeight.w800,
-                              color: Theme.of(context).accentColor,
+                              color: Theme.of(context).hintColor,
                             ),
                           ),
                           onPressed: () {},
@@ -206,6 +206,4 @@ class _HomeState extends State<Home> {
     );
   }
 
-  @override
-  bool get wantKeepAlive => true;
-}
+  }

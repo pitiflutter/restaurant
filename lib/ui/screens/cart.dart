@@ -18,7 +18,7 @@ class _CartScreenState extends State<CartScreen>
     super.build(context);
     return Scaffold(
       body: ValueListenableBuilder<AuthInfo?>(
-          valueListenable: AuthRepository.authCahheNotifier,
+          valueListenable: AuthRepository.authChangeNotifier,
           builder: (context, state, child) {
             bool isAuth = state != null && state.accessToken.isNotEmpty;
 
@@ -28,7 +28,7 @@ class _CartScreenState extends State<CartScreen>
                 Text(isAuth ? "welcome " : "please login"),
                 if (!isAuth)
                   ElevatedButton(
-                      onPressed:(){ Navigator.of(context,rootNavigator: true)
+                      onPressed:(){ Navigator.of(context)
                           .push(MaterialPageRoute(builder: (context)=>  JoinApp()));},
 
                       child: Text("login"))

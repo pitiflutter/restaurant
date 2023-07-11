@@ -16,7 +16,7 @@ abstract class IAuthRepository {
 }
 
 class AuthRepository implements IAuthRepository {
-  static final ValueNotifier<AuthInfo?> authCahheNotifier = ValueNotifier(null);
+  static final ValueNotifier<AuthInfo?> authChangeNotifier = ValueNotifier(null);
    final IAuthDataSource authDataSource;
 
   AuthRepository(this.authDataSource,);
@@ -49,7 +49,7 @@ class AuthRepository implements IAuthRepository {
     final String refreshToken =
         sharedPreferences.getString("refresh_token") ?? "";
     if(accessToken.isNotEmpty && refreshToken.isNotEmpty){
-      authCahheNotifier.value =
+      authChangeNotifier.value =
         AuthInfo(accessToken: accessToken, refreshToken: refreshToken);
     }
   }

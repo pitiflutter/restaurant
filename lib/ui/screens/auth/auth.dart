@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant/ui/screens/auth/bloc/auth_bloc.dart';
+ import 'package:restaurant/ui/screens/auth/bloc/auth_bloc.dart';
+import 'package:restaurant/ui/screens/cart.dart';
+import 'package:restaurant/ui/screens/home/home.dart';
 
 import '../../../data/repo/auth_repository.dart';
 import '../login.dart';
@@ -20,8 +22,7 @@ class _JoinAppState extends State<JoinApp> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, initialIndex: 1, length: 2);
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
-  }
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +37,8 @@ class _JoinAppState extends State<JoinApp> with SingleTickerProviderStateMixin {
         ),
         bottom: TabBar(
           controller: _tabController,
-          indicatorColor: Theme.of(context).accentColor,
-          labelColor: Theme.of(context).accentColor,
+          indicatorColor: Theme.of(context).hintColor,
+          labelColor: Theme.of(context).hintColor,
           unselectedLabelColor: Colors.grey,
           labelStyle: TextStyle(
             fontSize: 20.0,
@@ -63,10 +64,9 @@ class _JoinAppState extends State<JoinApp> with SingleTickerProviderStateMixin {
           bloc.add(AuthStarted());
           bloc.stream.forEach((element) {
             if (element is AuthSuccess) {
-              Navigator.of(context).pop(); 
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>CartScreen()));
             }else if (element is AuthError){
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(element.appExeption.message)));
-            }
+             }
           });
           return bloc;
         },
@@ -80,7 +80,7 @@ class _JoinAppState extends State<JoinApp> with SingleTickerProviderStateMixin {
             return TabBarView(
               controller: _tabController,
               children: <Widget>[
-                LoginScreen(blocState: state),
+               LoginScreen(state: state),
                 RegisterScreen(
                   blocState: state,
                 ),

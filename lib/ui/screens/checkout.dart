@@ -37,7 +37,7 @@ class _CheckoutState extends State<Checkout> {
             tooltip: "Back",
             icon: Icon(
               Icons.clear,
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).hintColor,
             ),
             onPressed: ()=>Navigator.pop(context),
           ),
@@ -104,7 +104,7 @@ class _CheckoutState extends State<Checkout> {
                 leading: Icon(
                   FontAwesomeIcons.creditCard,
                   size: 50.0,
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).hintColor,
                 ),
                 trailing: IconButton(
                   onPressed: (){},
@@ -182,7 +182,7 @@ class _CheckoutState extends State<Checkout> {
                       hintText: "Coupon Code",
                       prefixIcon: Icon(
                         Icons.redeem,
-                        color: Theme.of(context).accentColor,
+                        color: Theme.of(context).hintColor,
                       ),
                       hintStyle: TextStyle(
                         fontSize: 15.0,
@@ -217,7 +217,7 @@ class _CheckoutState extends State<Checkout> {
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w900,
-                            color: Theme.of(context).accentColor,
+                            color: Theme.of(context).hintColor,
                           ),
                         ),
 
@@ -237,7 +237,7 @@ class _CheckoutState extends State<Checkout> {
                     width: 150.0,
                     height: 50.0,
                     child: TextButton(
-                          style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).accentColor),
+                          style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).hintColor),
                        child: Text(
                         "Place Order".toUpperCase(),
                         style: TextStyle(

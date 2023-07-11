@@ -162,7 +162,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                               style: TextStyle(
                                 fontSize: 14.0,
                                 fontWeight: FontWeight.w900,
-                                color: Theme.of(context).accentColor,
+                                color: Theme.of(context).hintColor,
                               ),
                             ),
                           ],
@@ -260,7 +260,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           height: 50.0,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).accentColor),
+                backgroundColor: Theme.of(context).hintColor),
             child: Text(
               "ADD TO CART",
               style: TextStyle(

@@ -75,7 +75,7 @@ class _MainScreenState extends State<MainScreen> {
                   size: 24.0,
                 ),
                 color: _page == 0
-                    ? Theme.of(context).accentColor
+                    ? Theme.of(context).hintColor
                     : Theme.of(context).textTheme.caption?.color,
                 onPressed: () => _pageController.jumpToPage(0),
               ),
@@ -85,7 +85,7 @@ class _MainScreenState extends State<MainScreen> {
                   size: 24.0,
                 ),
                 color: _page == 1
-                    ? Theme.of(context).accentColor
+                    ? Theme.of(context).hintColor
                     : Theme.of(context).textTheme.caption?.color,
                 onPressed: () => _pageController.jumpToPage(1),
               ),
@@ -96,7 +96,7 @@ class _MainScreenState extends State<MainScreen> {
                   color: Theme.of(context).primaryColor,
                 ),
                 color: _page == 2
-                    ? Theme.of(context).accentColor
+                    ? Theme.of(context).hintColor
                     : Theme.of(context).textTheme.caption?.color,
                 onPressed: () => _pageController.jumpToPage(2),
               ),
@@ -106,7 +106,7 @@ class _MainScreenState extends State<MainScreen> {
                   size: 24.0,
                 ),
                 color: _page == 3
-                    ? Theme.of(context).accentColor
+                    ? Theme.of(context).hintColor
                     : Theme.of(context).textTheme.caption?.color,
                 onPressed: () => _pageController.jumpToPage(3),
               ),
@@ -116,7 +116,7 @@ class _MainScreenState extends State<MainScreen> {
                   size: 24.0,
                 ),
                 color: _page == 4
-                    ? Theme.of(context).accentColor
+                    ? Theme.of(context).hintColor
                     : Theme.of(context).textTheme.caption?.color,
                 onPressed: () => _pageController.jumpToPage(4),
               ),
